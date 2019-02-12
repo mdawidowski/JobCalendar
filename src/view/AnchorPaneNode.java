@@ -1,4 +1,4 @@
-package sample;
+package view;
 
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
