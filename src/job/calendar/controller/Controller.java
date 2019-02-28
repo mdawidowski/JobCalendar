@@ -7,6 +7,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import job.calendar.functions.AddData;
+import job.calendar.functions.CalendarView;
+
+import java.time.YearMonth;
 
 public class Controller {
 
@@ -34,11 +37,14 @@ public class Controller {
 
     @FXML
     void initialize() {
-    }
-
-    @FXML
-    public void displayCalendar(){
-
+        CalendarView view = new CalendarView();
+        view.setCalendarBox(calendarVBox);
+        view.setActualDate();
+        view.setMonthName();
+        monthNameLabel.setText(view.getMonthName());
+        view.initializeCalendar();
+        view.populateCalendar();
+        this.calendarVBox.getChildren().add(view.getCalendarBox());
     }
 
     @FXML
