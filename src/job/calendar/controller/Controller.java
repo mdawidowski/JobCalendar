@@ -34,10 +34,10 @@ public class Controller {
     @FXML
     private Label labelRightStatus;
 
-
+    private CalendarView view;
     @FXML
     void initialize() {
-        CalendarView view = new CalendarView();
+        view = new CalendarView();
         view.setCalendarBox(calendarVBox);
         view.setActualDate();
         view.setMonthName();
@@ -49,10 +49,16 @@ public class Controller {
 
     @FXML
     public void nextMonth(){
+        view.nextMonth();
+        view.populateCalendar();
+        monthNameLabel.setText(view.getMonthName());
     }
 
     @FXML
     public void previousMonth(){
+        view.previousMonth();
+        view.populateCalendar();
+        monthNameLabel.setText(view.getMonthName());
     }
 
     @FXML

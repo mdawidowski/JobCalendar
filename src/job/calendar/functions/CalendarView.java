@@ -22,15 +22,15 @@ public class CalendarView {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 7; j++) {
                 AnchorPaneNode anchorPaneNode = new AnchorPaneNode();
-                anchorPaneNode.setPrefSize(300,300);
+                anchorPaneNode.setPrefSize(400,300);
                 calendar.add(anchorPaneNode,j,i);
                 allCalendarDays.add(anchorPaneNode);
             }
         }
 
-        Text[] dayLabels = new Text[]{ new Text("Sunday"), new Text("Monday"), new Text("Tuesday"),
+        Text[] dayLabels = new Text[]{ new Text("Monday"), new Text("Tuesday"),
                 new Text("Wednesday"), new Text("Thursday"), new Text("Friday"),
-                new Text("Saturday") };
+                new Text("Saturday"), new Text("Sunday") };
         GridPane days = new GridPane();
         days.setPrefWidth(600);
         Integer col = 0;
@@ -46,7 +46,7 @@ public class CalendarView {
 
     public void populateCalendar(){
         LocalDate calendarDate = LocalDate.of(yearMonth.getYear(), yearMonth.getMonthValue(), 1);
-        while (!calendarDate.getDayOfWeek().toString().equals("SUNDAY") ) {
+        while (!calendarDate.getDayOfWeek().toString().equals("MONDAY") ) {
             calendarDate = calendarDate.minusDays(1);
         }
         for (AnchorPaneNode anchorPaneNode : allCalendarDays) {
@@ -60,6 +60,16 @@ public class CalendarView {
             anchorPaneNode.getChildren().add(txt);
             calendarDate = calendarDate.plusDays(1);
         }
+    }
+
+    public void nextMonth(){
+        yearMonth = yearMonth.plusMonths(1);
+        setMonthName();
+    }
+
+    public void previousMonth(){
+        yearMonth = yearMonth.minusMonths(1);
+        setMonthName();
     }
 
     public void setCalendarBox(VBox calendarBox){
