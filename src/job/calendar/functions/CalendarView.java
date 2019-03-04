@@ -42,6 +42,7 @@ public class CalendarView {
             days.add(anchorPane, col++, 0);
         }
         calendarBox = new VBox(days,calendar);
+        populateCalendar();
     }
 
     public void populateCalendar(){
@@ -64,11 +65,13 @@ public class CalendarView {
 
     public void nextMonth(){
         yearMonth = yearMonth.plusMonths(1);
+        populateCalendar();
         setMonthName();
     }
 
     public void previousMonth(){
         yearMonth = yearMonth.minusMonths(1);
+        populateCalendar();
         setMonthName();
     }
 
@@ -80,7 +83,7 @@ public class CalendarView {
         this.yearMonth = YearMonth.now();
     }
     public void setMonthName(){
-        this.monthName = yearMonth.getMonth().toString();
+        this.monthName = yearMonth.getMonth().toString() + " " + yearMonth.getYear();
     }
 
     public String getMonthName(){
@@ -90,4 +93,5 @@ public class CalendarView {
     public VBox getCalendarBox(){
         return this.calendarBox;
     }
+
 }
