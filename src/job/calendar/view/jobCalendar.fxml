@@ -62,7 +62,7 @@
     </MenuBar>
     <SplitPane dividerPositions="0.25395152792413067" focusTraversable="true" prefHeight="695.0" prefWidth="942.0" scaleShape="false" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane prefHeight="693.0" prefWidth="13.0">
+        <AnchorPane prefHeight="686.0" prefWidth="274.0">
           <children>
             <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Master" textAlignment="CENTER" wrapText="false">
               <font>
@@ -75,19 +75,21 @@
                   <TextField id="nameTextField" fx:id="nameTextField" layoutX="29.0" layoutY="110.0" />
                   <TextField id="amountTextField" fx:id="amountTextField" layoutX="32.0" layoutY="172.0" />
                   <Button id="addButton" fx:id="addButton" layoutX="81.0" layoutY="214.0" mnemonicParsing="false" onAction="#addNewItem" text="Add" />
-                  <TableView id="tableView" fx:id="tableView" layoutX="13.0" layoutY="310.0" prefHeight="200.0" prefWidth="200.0">
+                  <TableView id="tableView" fx:id="tableView" layoutX="13.0" layoutY="310.0" prefHeight="200.0" prefWidth="209.0">
                     <columns>
-                      <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
-                      <TableColumn fx:id="amountColumn" prefWidth="75.0" text="Amount" />
+                      <TableColumn fx:id="nameColumn" prefWidth="138.0" text="Name" />
+                      <TableColumn fx:id="amountColumn" prefWidth="70.0" text="Amount" />
                     </columns>
                   </TableView>
                   <Label layoutX="29.0" layoutY="84.0" text="Name" />
                   <Label layoutX="29.0" layoutY="144.0" text="Free days amount" />
+                  <Button fx:id="deleteButton" layoutX="125.0" layoutY="525.0" mnemonicParsing="false" onAction="#deletePerson" text="Delete" />
+                  <Button fx:id="editButton" layoutX="37.0" layoutY="525.0" mnemonicParsing="false" onAction="#editPerson" prefHeight="26.0" prefWidth="59.0" text="Edit" />
           </children>
         </AnchorPane>
         <ScrollPane prefHeight="600.0" prefWidth="466.0">
           <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="667.0" prefWidth="718.0">
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="667.0" prefWidth="518.0">
               <children>
                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Calendar" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                     <AnchorPane id="detailsAnchorPane" layoutX="541.0" layoutY="14.0" prefHeight="600.0" prefWidth="152.0">

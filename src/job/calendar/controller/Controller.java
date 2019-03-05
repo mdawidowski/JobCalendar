@@ -10,7 +10,9 @@ import job.calendar.functions.DataManagement;
 import job.calendar.functions.CalendarView;
 import job.calendar.functions.Person;
 
+import javax.xml.crypto.Data;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 public class Controller {
 
@@ -20,6 +22,10 @@ public class Controller {
     private TextField amountTextField;
     @FXML
     private Button addButton;
+    @FXML
+    private Button deleteButton;
+    @FXML
+    private Button editButton;
     @FXML
     private Button previousButton;
     @FXML
@@ -80,10 +86,39 @@ public class Controller {
 
     }
 
+    @FXML
+    public void deletePerson() throws SQLException {
+        if (!tableView.getSelectionModel().isEmpty()) {
+            Person person = tableView.getSelectionModel().getSelectedItem();
+            DataManagement.deleteData(person.name.getValue(), person.amount.getValue().intValue());
+            loadTableView();
+        } else {
+            selectAlert();
+        }
+    }
+
+    @FXML
+    public void editPerson(){
+        if (!tableView.getSelectionModel().isEmpty()) {
+            Person person = tableView.getSelectionModel().getSelectedItem();
+
+        } else {
+            selectAlert();
+        }
+    }
+
     public void loadTableView() throws SQLException {
         list = DataManagement.showData();
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("name"));
-        amountColumn.setCellValueFactory(new PropertyValueFactory<Person, Integer>("amount"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
         tableView.setItems(list);
+    }
+
+    public void selectAlert(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("You have to select one person!");
+        alert.showAndWait();
     }
 }
