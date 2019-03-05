@@ -1,5 +1,6 @@
 package job.calendar.controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -10,7 +11,6 @@ import job.calendar.functions.CalendarView;
 import job.calendar.functions.Person;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class Controller {
 
@@ -40,9 +40,10 @@ public class Controller {
     private Label labelRightStatus;
 
     private CalendarView view;
-    private ObservableList<Person> list;
+    private ObservableList list;
+
     @FXML
-    void initialize() {
+    void initialize() throws SQLException {
         view = new CalendarView();
         view.setCalendarBox(calendarVBox);
         view.setActualDate();
@@ -50,10 +51,8 @@ public class Controller {
         monthNameLabel.setText(view.getMonthName());
         view.initializeCalendar();
         this.calendarVBox.getChildren().add(view.getCalendarBox());
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        amountColumn.setCellValueFactory(new PropertyValueFactory<>("Amounts"));
-        list = DataManagement.showData();
-        tableView.setItems(list);
+        loadTableView();
+
     }
 
     @FXML
@@ -72,9 +71,19 @@ public class Controller {
     public void addNewItem() throws SQLException {
         if (!amountTextField.getText().isEmpty()) {
             DataManagement.insertData(nameTextField.getText(), Integer.parseInt(amountTextField.getText()));
+            nameTextField.setText(null);
+            amountTextField.setText(null);
         } else {
             System.out.println("Wrong value inserted!");
         }
+        loadTableView();
+
     }
 
+    public void loadTableView() throws SQLException {
+        list = DataManagement.showData();
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("name"));
+        amountColumn.setCellValueFactory(new PropertyValueFactory<Person, Integer>("amount"));
+        tableView.setItems(list);
+    }
 }
