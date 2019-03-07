@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="286.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1" fx:controller="job.calendar.controller.EditMenuController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="288.0" prefWidth="530.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Label layoutX="222.0" layoutY="43.0" text="Name" />
+            <Label layoutX="214.0" layoutY="110.0" text="Amount" />
+            <TextField fx:id="nameField" layoutX="155.0" layoutY="69.0" />
+            <TextField fx:id="amountField" layoutX="155.0" layoutY="135.0" />
+            <Button fx:id="cancelButton" layoutX="261.0" layoutY="175.0" mnemonicParsing="false" onAction="#closeEditWindow" text="Cancel" />
+            <Button fx:id="menuEditButton" layoutX="155.0" layoutY="175.0" mnemonicParsing="false" onAction="#editSelectedPerson" prefHeight="26.0" prefWidth="63.0" text="Edit" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

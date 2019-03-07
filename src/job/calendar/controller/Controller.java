@@ -1,18 +1,23 @@
 package job.calendar.controller;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import job.calendar.functions.DataManagement;
 import job.calendar.functions.CalendarView;
 import job.calendar.functions.Person;
 
-import javax.xml.crypto.Data;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 public class Controller {
 
@@ -47,7 +52,8 @@ public class Controller {
 
     private CalendarView view;
     private ObservableList list;
-
+    private EditMenuController editMenuController;
+    private Stage stage;
     @FXML
     void initialize() throws SQLException {
         view = new CalendarView();
@@ -83,14 +89,13 @@ public class Controller {
             System.out.println("Wrong value inserted!");
         }
         loadTableView();
-
     }
 
     @FXML
     public void deletePerson() throws SQLException {
         if (!tableView.getSelectionModel().isEmpty()) {
             Person person = tableView.getSelectionModel().getSelectedItem();
-            DataManagement.deleteData(person.name.getValue(), person.amount.getValue().intValue());
+            DataManagement.deleteData(person.name.getValue(), person.amount.getValue());
             loadTableView();
         } else {
             selectAlert();
@@ -98,9 +103,26 @@ public class Controller {
     }
 
     @FXML
-    public void editPerson(){
+    public void editPerson() throws IOException {
         if (!tableView.getSelectionModel().isEmpty()) {
             Person person = tableView.getSelectionModel().getSelectedItem();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/job/calendar/view/editMenu.fxml"));
+            Parent root1 = fxmlLoader.load();
+            editMenuController = fxmlLoader.getController();
+            stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.setTitle("Edit Person");
+            stage.show();
+            editMenuController.setPersonData(person.name.getValue(), person.amount.getValue().intValue());
+            stage.setOnHidden(new EventHandler<WindowEvent>() {
+                public void handle(WindowEvent we) {
+                    try {
+                        loadTableView();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
         } else {
             selectAlert();
@@ -118,7 +140,7 @@ public class Controller {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
-        alert.setContentText("You have to select one person!");
+        alert.setContentText("You have to select person!");
         alert.showAndWait();
     }
 }

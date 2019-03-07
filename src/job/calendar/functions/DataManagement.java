@@ -41,14 +41,19 @@ public class DataManagement {
     }
 
     public static void deleteData(String name, int amount) throws SQLException {
-            PreparedStatement statement = db.conn.prepareStatement("DELETE FROM staff where name=? and amount=?;");
+            PreparedStatement statement = db.conn.prepareStatement("DELETE FROM staff where name=(?) and amount=(?);");
             statement.setString(1, name);
             statement.setInt(2,amount);
             statement.execute();
-            System.out.println(name + amount);
     }
 
-    public static void editData() throws SQLException {
+    public static void editData(String name, int amount, String newName, int newAmount) throws SQLException {
+        PreparedStatement statement = db.conn.prepareStatement("UPDATE staff SET name=(?), amount=(?) WHERE name=(?) and amount=(?);");
+        statement.setString(1, newName);
+        statement.setInt(2, newAmount);
+        statement.setString(3, name);
+        statement.setInt(4, amount);
+        statement.execute();
     }
 
 

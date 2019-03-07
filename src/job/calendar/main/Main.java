@@ -20,7 +20,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Job Calendar");
         primaryStage.show();
-//        Controller.displayCalendar();
     }
 
 
