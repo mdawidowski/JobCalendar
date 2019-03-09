@@ -47,7 +47,7 @@ public class DataManagement {
             statement.execute();
     }
 
-    public static void editData(String name, int amount, String newName, int newAmount) throws SQLException {
+    public static void updateData(String name, int amount, String newName, int newAmount) throws SQLException {
         PreparedStatement statement = db.conn.prepareStatement("UPDATE staff SET name=(?), amount=(?) WHERE name=(?) and amount=(?);");
         statement.setString(1, newName);
         statement.setInt(2, newAmount);

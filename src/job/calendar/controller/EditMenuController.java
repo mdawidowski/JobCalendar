@@ -25,7 +25,7 @@ public class EditMenuController {
     @FXML
     public void editSelectedPerson() throws SQLException {
          if (!nameField.getText().isEmpty() && !amountField.getText().isEmpty()) {
-             DataManagement.editData(oldName, oldAmount, nameField.getText(), Integer.valueOf(amountField.getText()));
+             DataManagement.updateData(oldName, oldAmount, nameField.getText(), Integer.valueOf(amountField.getText()));
              setDataChanged();
              closeEditWindow();
          }

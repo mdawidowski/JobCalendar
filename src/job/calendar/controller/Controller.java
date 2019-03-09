@@ -1,7 +1,7 @@
 package job.calendar.controller;
 
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -16,6 +17,7 @@ import job.calendar.functions.DataManagement;
 import job.calendar.functions.CalendarView;
 import job.calendar.functions.Person;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -43,6 +45,8 @@ public class Controller {
     private TableColumn<Person, String> nameColumn;
     @FXML
     private TableColumn<Person, Integer> amountColumn;
+    @FXML
+    private TableColumn<Person, Void> actionColumn;
     @FXML
     private VBox calendarVBox;
     @FXML
@@ -133,7 +137,44 @@ public class Controller {
         list = DataManagement.showData();
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        addActionButtons();
         tableView.setItems(list);
+    }
+    public void addActionButtons() {
+        actionColumn.setCellFactory(param -> new TableCell<Person, Void>() {
+            private final Button plusButton = new Button("+");
+            private final Button minusButton = new Button("-");
+            private final HBox pane = new HBox(plusButton, minusButton);
+
+            {
+                plusButton.setOnAction(event -> {
+                    Person person = getTableView().getItems().get(getIndex());
+                    try {
+                        DataManagement.updateData(person.name.getValue(), person.amount.getValue(), person.name.getValue(), person.amount.get() + 1);
+                        loadTableView();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+
+                minusButton.setOnAction(event -> {
+                    Person person = getTableView().getItems().get(getIndex());
+                    try {
+                        DataManagement.updateData(person.name.getValue(), person.amount.getValue(), person.name.getValue(), person.amount.get() - 1);
+                        loadTableView();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+
+                setGraphic(empty ? null : pane);
+            }
+        });
     }
 
     public void selectAlert(){
