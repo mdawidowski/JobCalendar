@@ -1,6 +1,5 @@
 package job.calendar.controller;
 
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,7 +16,6 @@ import job.calendar.functions.DataManagement;
 import job.calendar.functions.CalendarView;
 import job.calendar.functions.Person;
 
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.sql.SQLException;
 

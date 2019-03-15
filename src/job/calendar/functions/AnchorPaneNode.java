@@ -1,15 +1,22 @@
 package job.calendar.functions;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import job.calendar.controller.CalendarDayDetailsController;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class AnchorPaneNode extends AnchorPane {
 
     // Date associated with this pane
     private LocalDate date;
-    private DetailsPane detailsPane = new DetailsPane();
+    private CalendarDayDetailsController calendarDayDetailsController = new CalendarDayDetailsController();
+    private Stage stage;
     /**
      * Create a anchor pane node. Date is not assigned in the constructor.
      * @param children children of the anchor pane
@@ -18,13 +25,24 @@ public class AnchorPaneNode extends AnchorPane {
 
         super(children);
         // Add action handler for mouse clicked
-        this.setOnMouseClicked(e -> detailsPane.setDetails(date));
+        this.setOnMouseClicked(e -> {
+            try {
+                openDayDetails();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
     }
 
-    public LocalDate getDate() {
-        return date;
+    public void openDayDetails() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/job/calendar/view/calendarDayDetails.fxml"));
+        Parent root1 = fxmlLoader.load();
+        calendarDayDetailsController = fxmlLoader.getController();
+        stage = new Stage();
+        stage.setScene(new Scene(root1));
+        stage.setTitle(date + " details");
+        stage.show();
     }
-
     public void setDate(LocalDate date) {
         this.date = date;
     }

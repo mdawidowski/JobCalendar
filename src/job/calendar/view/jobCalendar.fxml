@@ -19,7 +19,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="737.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="job.calendar.controller.Controller">
+<VBox prefHeight="737.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="job.calendar.controller.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -88,20 +88,15 @@
                   <Button fx:id="deleteButton" layoutX="185.0" layoutY="525.0" mnemonicParsing="false" onAction="#deletePerson" text="Delete" />
           </children>
         </AnchorPane>
-        <ScrollPane prefHeight="600.0" prefWidth="466.0">
+        <ScrollPane prefHeight="686.0" prefWidth="639.0">
           <content>
             <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="667.0" prefWidth="518.0">
               <children>
                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Calendar" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                    <AnchorPane id="detailsAnchorPane" layoutX="556.0" layoutY="14.0" prefHeight="600.0" prefWidth="152.0">
-                      <children>
-                        <Label fx:id="monthNameButton" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="4.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                      </children>
-                    </AnchorPane>
-                        <VBox fx:id="calendarVBox" layoutX="21.0" layoutY="133.0" prefHeight="495.0" prefWidth="527.0" />
-                        <Button fx:id="previousButton" layoutX="156.0" layoutY="76.0" mnemonicParsing="false" onAction="#previousMonth" text="&lt;&lt;" />
-                        <Button fx:id="nextButton" layoutX="359.0" layoutY="76.0" mnemonicParsing="false" onAction="#nextMonth" text="&gt;&gt;" />
-                        <Label fx:id="monthNameLabel" layoutX="223.0" layoutY="83.0" text="MonthName" />
+                        <VBox fx:id="calendarVBox" layoutX="80.0" layoutY="130.0" prefHeight="495.0" prefWidth="527.0" />
+                        <Button fx:id="previousButton" layoutX="236.0" layoutY="74.0" mnemonicParsing="false" onAction="#previousMonth" text="&lt;&lt;" />
+                        <Button fx:id="nextButton" layoutX="439.0" layoutY="74.0" mnemonicParsing="false" onAction="#nextMonth" text="&gt;&gt;" />
+                        <Label fx:id="monthNameLabel" layoutX="303.0" layoutY="81.0" text="MonthName" />
               </children>
             </AnchorPane>
           </content>
