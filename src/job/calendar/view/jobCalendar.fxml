@@ -97,6 +97,7 @@
                         <Button fx:id="previousButton" layoutX="236.0" layoutY="74.0" mnemonicParsing="false" onAction="#previousMonth" text="&lt;&lt;" />
                         <Button fx:id="nextButton" layoutX="439.0" layoutY="74.0" mnemonicParsing="false" onAction="#nextMonth" text="&gt;&gt;" />
                         <Label fx:id="monthNameLabel" layoutX="303.0" layoutY="81.0" text="MonthName" />
+                        <Button fx:id="addNewEventButton" layoutX="281.0" layoutY="640.0" mnemonicParsing="false" onAction="#addNewEvent" text="Add New Event" />
               </children>
             </AnchorPane>
           </content>

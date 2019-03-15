@@ -36,6 +36,8 @@ public class Controller {
     @FXML
     private Button nextButton;
     @FXML
+    private Button addNewEventButton;
+    @FXML
     private Label monthNameLabel;
     @FXML
     private TableView<Person> tableView;
@@ -55,6 +57,7 @@ public class Controller {
     private CalendarView view;
     private ObservableList list;
     private EditMenuController editMenuController;
+    private AddEventController addEventController;
     private Stage stage;
     @FXML
     void initialize() throws SQLException {
@@ -79,6 +82,17 @@ public class Controller {
     public void previousMonth(){
         view.previousMonth();
         monthNameLabel.setText(view.getMonthName());
+    }
+
+    @FXML
+    public void addNewEvent() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/job/calendar/view/addEvent.fxml"));
+        Parent root1 = fxmlLoader.load();
+        addEventController = fxmlLoader.getController();
+        stage = new Stage();
+        stage.setScene(new Scene(root1));
+        stage.setTitle("Add new event");
+        stage.show();
     }
 
     @FXML

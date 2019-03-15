@@ -20,13 +20,11 @@ public class EditMenuController {
 
     private String oldName;
     private int oldAmount;
-    private boolean dataChanged = false;
 
     @FXML
     public void editSelectedPerson() throws SQLException {
          if (!nameField.getText().isEmpty() && !amountField.getText().isEmpty()) {
              DataManagement.updateData(oldName, oldAmount, nameField.getText(), Integer.valueOf(amountField.getText()));
-             setDataChanged();
              closeEditWindow();
          }
     }
@@ -42,14 +40,5 @@ public class EditMenuController {
         this.oldAmount = amount;
         nameField.setText(name);
         amountField.setText(String.valueOf(amount));
-    }
-
-
-    public void setDataChanged(){
-        this.dataChanged = true;
-    }
-
-    public boolean getDataChanged(){
-        return dataChanged;
     }
 }

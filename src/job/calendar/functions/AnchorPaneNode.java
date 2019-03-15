@@ -42,7 +42,9 @@ public class AnchorPaneNode extends AnchorPane {
         stage.setScene(new Scene(root1));
         stage.setTitle(date + " details");
         stage.show();
+        calendarDayDetailsController.setTextDate(date);
     }
+
     public void setDate(LocalDate date) {
         this.date = date;
     }
