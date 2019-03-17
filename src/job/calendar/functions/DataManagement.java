@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class DataManagement {
 
-    private static ArrayList dataBaseArrayList(ResultSet resultSet) throws SQLException {
+    private static ArrayList getDataBaseArrayList(ResultSet resultSet) throws SQLException {
         ArrayList<Person> data =  new ArrayList<>();
         while (resultSet.next()) {
             Person person = new Person((resultSet.getString("name")), (resultSet.getInt("amount")));
@@ -36,7 +36,7 @@ public class DataManagement {
     public static ObservableList showData() throws SQLException {
         ResultSet resultSet;
         resultSet = db.stat.executeQuery("SELECT * FROM staff;");
-        ObservableList dbData = FXCollections.observableArrayList(dataBaseArrayList(resultSet));
+        ObservableList dbData = FXCollections.observableArrayList(getDataBaseArrayList(resultSet));
         return dbData;
     }
 
@@ -56,5 +56,13 @@ public class DataManagement {
         statement.execute();
     }
 
+    public static void insertNewEvent(String name, String description, String start_date, String end_date) throws SQLException {
+            PreparedStatement statement = db.conn.prepareStatement("insert into events values (?, ?, ?, ?);");
+            statement.setString(1,  name);
+            statement.setString(2, description);
+            statement.setString(3, start_date);
+            statement.setString(4, end_date);
+            statement.execute();
+    }
 
 }

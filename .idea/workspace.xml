@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/job/calendar/controller/AddEventController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/job/calendar/view/addEvent.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job/calendar/controller/CalendarDayDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/controller/CalendarDayDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job/calendar/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job/calendar/controller/EditMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/controller/EditMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job/calendar/functions/AnchorPaneNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/functions/AnchorPaneNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job/calendar/view/calendarDayDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/view/calendarDayDetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/job/calendar/view/jobCalendar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/view/jobCalendar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job/calendar/controller/AddEventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/controller/AddEventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job/calendar/functions/DataManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/functions/DataManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job/calendar/functions/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/functions/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/job/calendar/view/addEvent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/job/calendar/view/addEvent.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,7 +46,25 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="database.sqlite" type="feb32156:DbDataSourceImpl" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="events: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -99,22 +113,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/job/calendar/controller/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-225">
-              <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/DataManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+            <state relative-caret-position="537">
+              <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,44 +125,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/job/calendar/controller/EditMenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/AnchorPaneNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/job/calendar/view/addEvent.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="176" selection-start-line="10" selection-start-column="176" selection-end-line="10" selection-end-column="176" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/job/calendar/controller/AddEventController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="282">
+              <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#656#657#0" expanded="true" />
+                <element signature="e#712#713#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/job/calendar/controller/EditMenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,6 +166,8 @@
       <find>addB</find>
       <find>month</find>
       <find>da</find>
+      <find>observa</find>
+      <find>list</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -218,18 +202,18 @@
         <option value="$PROJECT_DIR$/src/job/calendar/model/Database.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a4673f8d-a6c4-44e7-85be-dbde0632c877/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0e444fd3-625f-4ee6-a328-f0c39770dede/console.sql" />
-        <option value="$PROJECT_DIR$/src/job/calendar/functions/Person.java" />
         <option value="$PROJECT_DIR$/src/job/calendar/main/Main.java" />
         <option value="$PROJECT_DIR$/src/job/calendar/view/editMenu.fxml" />
-        <option value="$PROJECT_DIR$/src/job/calendar/functions/DataManagement.java" />
         <option value="$PROJECT_DIR$/src/job/calendar/view/calendarDayDetails.fxml" />
         <option value="$PROJECT_DIR$/src/job/calendar/controller/EditMenuController.java" />
         <option value="$PROJECT_DIR$/src/job/calendar/controller/CalendarDayDetailsController.java" />
         <option value="$PROJECT_DIR$/src/job/calendar/functions/AnchorPaneNode.java" />
         <option value="$PROJECT_DIR$/src/job/calendar/controller/addEventController.java" />
         <option value="$PROJECT_DIR$/src/job/calendar/view/addEvent.fxml" />
-        <option value="$PROJECT_DIR$/src/job/calendar/controller/AddEventController.java" />
         <option value="$PROJECT_DIR$/src/job/calendar/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/job/calendar/functions/Person.java" />
+        <option value="$PROJECT_DIR$/src/job/calendar/functions/DataManagement.java" />
+        <option value="$PROJECT_DIR$/src/job/calendar/controller/AddEventController.java" />
       </list>
     </option>
   </component>
@@ -248,6 +232,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,7 +298,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -328,7 +312,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552679796975" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552825377498" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="SQLite" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="dynamic.classpath" value="false" />
@@ -481,12 +465,14 @@
       <workItem from="1551940968051" duration="1059000" />
       <workItem from="1551984939572" duration="7980000" />
       <workItem from="1552152493179" duration="2745000" />
-      <workItem from="1552671233105" duration="7026000" />
+      <workItem from="1552671233105" duration="7848000" />
+      <workItem from="1552809411207" duration="1215000" />
+      <workItem from="1552815805329" duration="7637000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88973000" />
+    <option name="totallyTimeSpent" value="98647000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -501,7 +487,7 @@
     <frame x="0" y="-1" width="1920" height="1043" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17716116" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1814301" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -531,7 +517,7 @@
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="JetGradle" order="4" />
-      <window_info anchor="right" id="Database" order="5" weight="0.32924226" />
+      <window_info anchor="right" id="Database" order="5" visible="true" weight="0.32924226" />
       <window_info anchor="right" id="Palette" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="right" id="Maven" order="8" />
@@ -585,19 +571,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/DetailsPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="e#163#164#0" expanded="true" />
-            <element signature="e#189#190#0" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#256#257#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/DetailsPane.java" />
     <entry file="das://a4673f8d-a6c4-44e7-85be-dbde0632c877/collation/BINARY" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a4673f8d-a6c4-44e7-85be-dbde0632c877/console.sql">
@@ -638,16 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/job/calendar/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -656,28 +620,28 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/job/calendar/view/jobCalendar.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
           <caret line="118" column="16" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="16" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/job/calendar/view/editMenu.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="2" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/job/calendar/view/calendarDayDetails.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/job/calendar/controller/CalendarDayDetailsController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -691,48 +655,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/AnchorPaneNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/DataManagement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/job/calendar/view/addEvent.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="176" selection-start-line="10" selection-start-column="176" selection-end-line="10" selection-end-column="176" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/job/calendar/controller/AddEventController.java">
+    <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/AnchorPaneNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="312">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#990#991#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/job/calendar/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-225">
-          <caret line="59" column="50" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
+        <state relative-caret-position="222">
+          <caret line="83" column="41" lean-forward="true" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://3d21785e-154e-42c1-b037-1d5677f8dc46/schema/main/table/events">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/job/calendar/functions/DataManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -741,10 +714,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/job/calendar/controller/EditMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="403">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/job/calendar/controller/AddEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#656#657#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
           </folding>
         </state>
       </provider>

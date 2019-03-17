@@ -38,4 +38,8 @@ public class Person {
         return amount;
     }
 
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }
