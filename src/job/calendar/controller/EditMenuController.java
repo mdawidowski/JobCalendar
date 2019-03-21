@@ -10,13 +10,9 @@ import java.sql.SQLException;
 public class EditMenuController {
 
     @FXML
-    private TextField nameField;
+    private TextField nameField, amountField;
     @FXML
-    private TextField amountField;
-    @FXML
-    private Button menuEditButton;
-    @FXML
-    private Button cancelButton;
+    private Button menuEditButton, cancelButton;
 
     private String oldName;
     private int oldAmount;

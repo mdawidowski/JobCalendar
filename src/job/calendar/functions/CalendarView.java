@@ -1,10 +1,12 @@
 package job.calendar.functions;
 
+import javafx.collections.ObservableList;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
@@ -14,8 +16,9 @@ public class CalendarView {
     private String monthName;
     private YearMonth yearMonth;
     private ArrayList<AnchorPaneNode> allCalendarDays = new ArrayList<>(35);
+    private ObservableList<Events> allEvents;
 
-    public void initializeCalendar(){
+    public void initializeCalendar() throws SQLException {
         GridPane calendar = new GridPane();
         calendar.setPrefSize(800, 600);
         calendar.setGridLinesVisible(true);
@@ -45,8 +48,9 @@ public class CalendarView {
         populateCalendar();
     }
 
-    public void populateCalendar(){
+    public void populateCalendar() throws SQLException {
         LocalDate calendarDate = LocalDate.of(yearMonth.getYear(), yearMonth.getMonthValue(), 1);
+        allEvents = DataManagement.getEventFromDatabase();
         while (!calendarDate.getDayOfWeek().toString().equals("MONDAY") ) {
             calendarDate = calendarDate.minusDays(1);
         }
@@ -54,22 +58,30 @@ public class CalendarView {
             if (anchorPaneNode.getChildren().size() != 0) {
                 anchorPaneNode.getChildren().remove(0);
             }
-            Text txt = new Text(String.valueOf(calendarDate.getDayOfMonth()));
+            Text eventLabel = new Text("");
+            for (int i = 0; i < allEvents.size(); i++) {
+                if (calendarDate.isAfter(LocalDate.parse(String.valueOf(allEvents.get(i).getStartDate())).minusDays(1)) && calendarDate.isBefore(LocalDate.parse(String.valueOf(allEvents.get(i).getEndDate())).plusDays(1))) {
+                    eventLabel = new Text(eventLabel.getText() + " " + allEvents.get(i).getInitials());
+                }
+            }
+            Text dayNumber = new Text(String.valueOf(calendarDate.getDayOfMonth()));
+            anchorPaneNode.setBottomAnchor(eventLabel, 5.0);
+            anchorPaneNode.setRightAnchor(eventLabel, 5.0);
             anchorPaneNode.setDate(calendarDate);
-            anchorPaneNode.setTopAnchor(txt, 5.0);
-            anchorPaneNode.setLeftAnchor(txt, 5.0);
-            anchorPaneNode.getChildren().add(txt);
+            anchorPaneNode.setTopAnchor(dayNumber, 5.0);
+            anchorPaneNode.setLeftAnchor(dayNumber, 5.0);
+            anchorPaneNode.getChildren().setAll(dayNumber, eventLabel);
             calendarDate = calendarDate.plusDays(1);
         }
     }
 
-    public void nextMonth(){
+    public void nextMonth() throws SQLException {
         yearMonth = yearMonth.plusMonths(1);
         populateCalendar();
         setMonthName();
     }
 
-    public void previousMonth(){
+    public void previousMonth() throws SQLException {
         yearMonth = yearMonth.minusMonths(1);
         populateCalendar();
         setMonthName();

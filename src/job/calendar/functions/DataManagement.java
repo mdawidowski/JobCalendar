@@ -65,4 +65,19 @@ public class DataManagement {
             statement.execute();
     }
 
+    public static ObservableList getEventFromDatabase() throws SQLException {
+        ResultSet resultSet;
+        resultSet = db.stat.executeQuery("SELECT * FROM events;");
+        ObservableList dbData = FXCollections.observableArrayList(getEventsDataBaseArrayList(resultSet));
+        return dbData;
+    }
+
+    private static ArrayList getEventsDataBaseArrayList(ResultSet resultSet) throws SQLException {
+        ArrayList<Events> data =  new ArrayList<>();
+        while (resultSet.next()) {
+            Events events = new Events((resultSet.getString("person")), (resultSet.getString("description")), (resultSet.getString("date_start")), (resultSet.getString("date_end")));
+            data.add(events);
+        }
+        return data;
+    }
 }

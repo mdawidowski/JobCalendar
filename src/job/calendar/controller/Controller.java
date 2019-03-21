@@ -22,21 +22,9 @@ import java.sql.SQLException;
 public class Controller {
 
     @FXML
-    private TextField nameTextField;
+    private TextField nameTextField, amountTextField;
     @FXML
-    private TextField amountTextField;
-    @FXML
-    private Button addButton;
-    @FXML
-    private Button deleteButton;
-    @FXML
-    private Button editButton;
-    @FXML
-    private Button previousButton;
-    @FXML
-    private Button nextButton;
-    @FXML
-    private Button addNewEventButton;
+    private Button addButton, deleteButton, editButton, previousButton, nextButton, addNewEventButton;
     @FXML
     private Label monthNameLabel;
     @FXML
@@ -50,9 +38,7 @@ public class Controller {
     @FXML
     private VBox calendarVBox;
     @FXML
-    private Label labelLeftStatus;
-    @FXML
-    private Label labelRightStatus;
+    private Label labelLeftStatus, labelRightStatus;
 
     private CalendarView view;
     private ObservableList list;
@@ -69,17 +55,16 @@ public class Controller {
         view.initializeCalendar();
         this.calendarVBox.getChildren().add(view.getCalendarBox());
         loadTableView();
-
     }
 
     @FXML
-    public void nextMonth(){
+    public void nextMonth() throws SQLException {
         view.nextMonth();
         monthNameLabel.setText(view.getMonthName());
     }
 
     @FXML
-    public void previousMonth(){
+    public void previousMonth() throws SQLException {
         view.previousMonth();
         monthNameLabel.setText(view.getMonthName());
     }
@@ -93,6 +78,17 @@ public class Controller {
         stage.setScene(new Scene(root1));
         stage.setTitle("Add new event");
         stage.show();
+        stage.setOnHidden(new EventHandler<WindowEvent>() {
+            public void handle(WindowEvent we) {
+                try {
+                    view.populateCalendar();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
     }
 
     @FXML

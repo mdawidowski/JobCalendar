@@ -3,10 +3,7 @@ package job.calendar.controller;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import job.calendar.functions.DataManagement;
 import job.calendar.functions.Person;
@@ -42,12 +39,16 @@ public class AddEventController {
 
     @FXML
     public void addEvent() throws SQLException, ParseException {
-        setName();
-        setDescription();
-        setStart_date();
-        setEnd_date();
-        DataManagement.insertNewEvent(name, description, start_date, end_date);
-        closeWindow();
+        if (!personComboBox.getSelectionModel().isEmpty() && !descriptionTextField.getText().isEmpty() && startDatePicker.getValue() != null && endDatePicker.getValue() != null ) {
+            setName();
+            setDescription();
+            setStart_date();
+            setEnd_date();
+            DataManagement.insertNewEvent(name, description, start_date, end_date);
+            closeWindow();
+        } else {
+            missingDataAlert();
+        }
     }
 
     @FXML
@@ -80,5 +81,13 @@ public class AddEventController {
         if (endDatePicker.getValue() != null){
             this.end_date = ft.format(ft.parse(endDatePicker.getValue().toString()));
         }
+    }
+
+    public void missingDataAlert(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("You have to enter all data!");
+        alert.showAndWait();
     }
 }
