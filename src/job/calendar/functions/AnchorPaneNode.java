@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import job.calendar.controller.CalendarDayDetailsController;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class AnchorPaneNode extends AnchorPane {
@@ -28,13 +29,13 @@ public class AnchorPaneNode extends AnchorPane {
         this.setOnMouseClicked(e -> {
             try {
                 openDayDetails();
-            } catch (IOException e1) {
+            } catch (IOException | SQLException e1) {
                 e1.printStackTrace();
             }
         });
     }
 
-    public void openDayDetails() throws IOException {
+    public void openDayDetails() throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/job/calendar/view/calendarDayDetails.fxml"));
         Parent root1 = fxmlLoader.load();
         calendarDayDetailsController = fxmlLoader.getController();

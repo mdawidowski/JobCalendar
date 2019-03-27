@@ -87,8 +87,6 @@ public class Controller {
                 }
             }
         });
-
-
     }
 
     @FXML

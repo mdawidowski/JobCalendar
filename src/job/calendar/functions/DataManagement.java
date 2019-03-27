@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class DataManagement {
 
@@ -79,5 +81,14 @@ public class DataManagement {
             data.add(events);
         }
         return data;
+    }
+
+    public static ObservableList getEventsByDate(String start_date, String end_date) throws SQLException {
+        ObservableList<Events> eventsList;
+        eventsList = getEventFromDatabase();
+        eventsList.stream()
+                .filter(a -> Objects.equals(a.getStartDate(), start_date))
+                .collect(Collectors.toList());
+        return eventsList;
     }
 }
