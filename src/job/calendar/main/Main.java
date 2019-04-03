@@ -1,11 +1,13 @@
 package job.calendar.main;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import job.calendar.controller.Controller;
 
 public class Main extends Application {
@@ -21,6 +23,11 @@ public class Main extends Application {
         primaryStage.setTitle("Job Calendar");
         primaryStage.setResizable(false);
         primaryStage.show();
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            public void handle(WindowEvent we) {
+                System.exit(0);
+            }
+        });
     }
 
 

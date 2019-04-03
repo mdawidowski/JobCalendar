@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import job.calendar.functions.DataManagement;
@@ -39,22 +40,30 @@ public class Controller {
     private VBox calendarVBox;
     @FXML
     private Label labelLeftStatus, labelRightStatus;
+    @FXML
+    private MenuItem newMenuItem, openMenuItem, quitMenuItem, aboutMenuItem;
 
     private CalendarView view;
     private ObservableList list;
     private EditMenuController editMenuController;
     private AddEventController addEventController;
     private Stage stage;
+
     @FXML
-    void initialize() throws SQLException {
+    void initialize() throws SQLException, IOException {
         view = new CalendarView();
         view.setCalendarBox(calendarVBox);
         view.setActualDate();
         view.setMonthName();
         monthNameLabel.setText(view.getMonthName());
-        view.initializeCalendar();
-        this.calendarVBox.getChildren().add(view.getCalendarBox());
-        loadTableView();
+        try {
+            view.initializeCalendar();
+            this.calendarVBox.getChildren().add(view.getCalendarBox());
+            loadTableView();
+        } catch (SQLException e){
+            DBNotFoundController dbNotFoundController = new DBNotFoundController();
+            dbNotFoundController.DBNotFoundWindow();
+        }
     }
 
     @FXML
@@ -146,6 +155,7 @@ public class Controller {
         addActionButtons();
         tableView.setItems(list);
     }
+
     public void addActionButtons() {
         actionColumn.setCellFactory(param -> new TableCell<Person, Void>() {
             private final Button plusButton = new Button("+");
@@ -189,5 +199,22 @@ public class Controller {
         alert.setHeaderText(null);
         alert.setContentText("You have to select person!");
         alert.showAndWait();
+    }
+
+    @FXML
+    public void newDB(){
+
+    }
+
+    @FXML
+    public void dbOpen(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        fileChooser.showOpenDialog(stage);
+    }
+
+    @FXML
+    public void quitApp(){
+        System.exit(0);
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="222.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="job.calendar.controller.DBNotFoundController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="300.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutX="112.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Database file not found! Select file or create new one." />
+            <Button fx:id="newDBButton" layoutX="106.0" layoutY="111.0" mnemonicParsing="false" onAction="#createNewDB" text="New database" />
+            <Button fx:id="openDBButtton" layoutX="227.0" layoutY="111.0" mnemonicParsing="false" onAction="#openDB" text="Open existing database" />
+            <Button fx:id="closeButton" layoutX="407.0" layoutY="111.0" mnemonicParsing="false" onAction="#closeApp" text="Close application" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

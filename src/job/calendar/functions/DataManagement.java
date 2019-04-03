@@ -4,12 +4,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import job.calendar.model.Database;
 
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class DataManagement {
 
@@ -22,7 +21,16 @@ public class DataManagement {
         return data;
     }
 
-    public static Database db = new Database();
+    public static Database db;
+
+    static {
+        try {
+            db = new Database();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void insertData(String name, int amount) throws SQLException {
         if (!name.isEmpty()){
             PreparedStatement statement = db.conn.prepareStatement("insert into staff values (?, ?);");
@@ -30,7 +38,7 @@ public class DataManagement {
             statement.setInt(2, amount);
             statement.execute();
         } else {
-            System.out.println("Błędnie podana wartość");
+            System.out.println("Wrong value inserted");
         }
 
     }
@@ -81,14 +89,5 @@ public class DataManagement {
             data.add(events);
         }
         return data;
-    }
-
-    public static ObservableList getEventsByDate(String start_date, String end_date) throws SQLException {
-        ObservableList<Events> eventsList;
-        eventsList = getEventFromDatabase();
-        eventsList.stream()
-                .filter(a -> Objects.equals(a.getStartDate(), start_date))
-                .collect(Collectors.toList());
-        return eventsList;
     }
 }

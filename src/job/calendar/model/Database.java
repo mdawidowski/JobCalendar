@@ -1,5 +1,6 @@
 package job.calendar.model;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ public class Database {
     public Connection conn;
     public Statement stat;
 
-    public Database() {
+    public Database() throws IOException {
         try {
             Class.forName(Database.DRIVER);
         } catch (ClassNotFoundException e) {
